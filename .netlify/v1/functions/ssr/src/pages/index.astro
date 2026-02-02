@@ -1,0 +1,29 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Copes Corner<br></h1>
+			<h2>What I notice</h2>
+			<p>
+			I spend a lot of time noticing how things really work —
+in workplaces, on basketball courts, at home with kids, and in the routines that shape our days.<br>
+<br>
+This is where I put those observations.<br>
+Part reflection, part sense-making.<br>
+Somewhere to pause, notice, and make sense of what’s actually going on <br>
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
