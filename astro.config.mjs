@@ -6,5 +6,6 @@ export default defineConfig({
 //  output: "static",
 //  adapter: netlify()
 site: 'https://sepocra.github.io', 
-base: '/copes-corner'
+base: '/copes-corner', 
+  output: "static'
 });
