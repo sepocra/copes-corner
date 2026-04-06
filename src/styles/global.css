@@ -4,10 +4,21 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
- :root {
-  --accent: #6B7645;
-  --accent-dark: #515A33;
-  --accent-light: #EDEEE6;
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap");
+
+:root {
+  --color-olive: #6b7645;
+  --color-sage: #7a9e68;
+  --color-sage-hover: #96b885;
+  --color-dark: #1e1e1e;
+  --color-cream: #e8e0d0;
+
+  --font-serif-display: "Lora", Georgia, "Times New Roman", serif;
+  --font-serif-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+
+  --accent: #6b7645;
+  --accent-dark: #515a33;
+  --accent-light: #edeee6;
   --black: 15, 18, 25;
   --gray: 96, 115, 159;
   --gray-light: 229, 233, 240;
@@ -17,6 +28,7 @@
     0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
     0 16px 32px rgba(var(--gray), 33%);
 }
+
 @font-face {
   font-family: "Atkinson";
   src: url("/fonts/atkinson-regular.woff") format("woff");
@@ -31,24 +43,89 @@
   font-style: normal;
   font-display: swap;
 }
+
 body {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-serif-body);
   margin: 0;
   padding: 0;
   text-align: left;
-  background: #FAFAF8;
+  background: #fff;
   word-wrap: break-word;
   overflow-wrap: break-word;
   color: rgb(var(--gray-dark));
   font-size: 20px;
   line-height: 1.7;
 }
+
+@media (prefers-color-scheme: dark) {
+  body.site-root {
+    background: #1e1e1e;
+    color: #d4d0c8;
+  }
+}
+
 main {
   width: 720px;
   max-width: calc(100% - 2em);
   margin: auto;
   padding: 3em 1em;
 }
+
+main.content-area {
+  --content-bg: #fff;
+  --content-text: rgb(34, 41, 57);
+  --content-heading: rgb(15, 18, 25);
+  --content-muted: #5c5f66;
+  --content-border: rgb(229, 233, 240);
+  --content-code-bg: rgb(229, 233, 240);
+
+  --post-list-title: #141821;
+  --post-list-excerpt: #4a4e55;
+  --post-list-meta: #6b7078;
+
+  background: var(--content-bg);
+  color: var(--content-text);
+}
+
+main.content-area a {
+  color: var(--color-olive);
+}
+
+main.content-area a:hover {
+  color: var(--color-sage);
+}
+
+main.content-area hr {
+  border-top-color: var(--content-border);
+}
+
+main.content-area code {
+  background-color: var(--content-code-bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  main.content-area {
+    --content-bg: #1e1e1e;
+    --content-text: #d4d0c8;
+    --content-heading: var(--color-cream);
+    --content-muted: #9a968c;
+    --content-border: #3a3834;
+    --content-code-bg: #2a2826;
+
+    --post-list-title: var(--color-cream);
+    --post-list-excerpt: #a8a49a;
+    --post-list-meta: #8a8680;
+  }
+
+  main.content-area a {
+    color: var(--color-sage);
+  }
+
+  main.content-area a:hover {
+    color: var(--color-sage-hover);
+  }
+}
+
 h1,
 h2,
 h3,
@@ -56,9 +133,20 @@ h4,
 h5,
 h6 {
   margin: 0 0 0.5rem 0;
+  font-family: var(--font-serif-display);
   color: rgb(var(--black));
   line-height: 1.2;
 }
+
+main.content-area h1,
+main.content-area h2,
+main.content-area h3,
+main.content-area h4,
+main.content-area h5,
+main.content-area h6 {
+  color: var(--content-heading);
+}
+
 h1 {
   font-size: 3.052em;
 }
@@ -127,6 +215,34 @@ hr {
   border: none;
   border-top: 1px solid rgb(var(--gray-light));
 }
+
+.post-list .title {
+  font-family: var(--font-serif-display);
+  color: var(--post-list-title);
+}
+
+.post-list .excerpt {
+  font-family: var(--font-serif-body);
+  color: var(--post-list-excerpt);
+}
+
+.post-list .meta,
+.post-list .date {
+  font-family: var(--font-serif-body);
+  color: var(--post-list-meta);
+}
+
+.post-list .tag {
+  font-family: var(--font-serif-body);
+  color: var(--color-olive);
+}
+
+@media (prefers-color-scheme: dark) {
+  .post-list .tag {
+    color: var(--color-sage);
+  }
+}
+
 @media (max-width: 720px) {
   body {
     font-size: 18px;
@@ -144,12 +260,8 @@ hr {
   height: 1px;
   width: 1px;
   overflow: hidden;
-  /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
   clip: rect(1px 1px 1px 1px);
-  /* maybe deprecated but we need to support legacy browsers */
   clip: rect(1px, 1px, 1px, 1px);
-  /* modern browsers, clip-path works inwards from each corner */
   clip-path: inset(50%);
-  /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
   white-space: nowrap;
 }

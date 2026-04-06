@@ -1,0 +1,31 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  lang?: string;
+  /** Extra class on `<main>` for page-specific layout (use with `is:global` styles). */
+  mainClass?: string;
+}
+
+const { title, description, image, lang = 'en', mainClass } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <BaseHead title={title} description={description} image={image} />
+    <slot name="head" />
+  </head>
+  <body class="site-root">
+    <Header />
+    <main class:list={['content-area', mainClass]}>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

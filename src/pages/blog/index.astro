@@ -1,7 +1,5 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
@@ -11,107 +9,86 @@ const posts = (await getCollection('blog')).sort(
 );
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <style>
-      main {
-        width: 720px;
-        max-width: calc(100% - 2em);
-        margin: auto;
-        padding: 3em 1em;
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION} mainClass="blog-list-main">
+  <style is:global slot="head">
+    @media (max-width: 720px) {
+      main.blog-list-main {
+        padding: 1.5em 1em;
       }
-      .post-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-      .post-list li a {
-        display: block;
-        text-decoration: none;
-        border-top: 1px solid rgb(var(--gray-light));
-        padding: 1.5rem 0;
-        transition: color 0.2s ease;
-      }
-      .post-list li:last-child {
-        border-bottom: 1px solid rgb(var(--gray-light));
-      }
-      .post-list li a:hover .title {
-        color: var(--accent);
-      }
-      .title {
-        font-family: Georgia, serif;
-        font-size: 1.15rem;
-        font-weight: 600;
-        color: rgb(var(--black));
-        margin: 0 0 0.4rem 0;
-        line-height: 1.3;
-        transition: color 0.2s ease;
-      }
-      .excerpt {
-        font-family: Georgia, serif;
-        font-size: 0.9rem;
-        color: #555;
-        margin: 0 0 0.75rem 0;
-        line-height: 1.6;
-        font-style: italic;
-      }
-      .meta {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-      }
-      .date {
-        font-family: Georgia, serif;
-        font-size: 0.78rem;
-        color: #999;
-      }
+    }
+  </style>
+  <style slot="head">
+    .post-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .post-list li a {
+      display: block;
+      text-decoration: none;
+      border-top: 1px solid var(--content-border);
+      padding: 1.5rem 0;
+      transition: color 0.2s ease;
+    }
+    .post-list li:last-child {
+      border-bottom: 1px solid var(--content-border);
+    }
+    .post-list li a:hover .title {
+      color: var(--color-olive);
+    }
+    .title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 0 0 0.4rem 0;
+      line-height: 1.3;
+      transition: color 0.2s ease;
+    }
+    .excerpt {
+      font-size: 0.9rem;
+      margin: 0 0 0.75rem 0;
+      line-height: 1.6;
+      font-style: italic;
+    }
+    .meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .date {
+      font-size: 0.78rem;
+    }
+    .tag {
+      font-size: 0.72rem;
+      background-color: var(--accent-light);
+      padding: 2px 8px;
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+      text-transform: lowercase;
+    }
+    @media (prefers-color-scheme: dark) {
       .tag {
-        font-family: Georgia, serif;
-        font-size: 0.72rem;
-        color: var(--accent);
-        background-color: var(--accent-light);
-        padding: 2px 8px;
-        border-radius: 2px;
-        letter-spacing: 0.04em;
-        text-transform: lowercase;
+        background-color: rgba(122, 158, 104, 0.15);
       }
-      @media (max-width: 720px) {
-        main {
-          padding: 1.5em 1em;
-        }
+    }
+  </style>
+  <section>
+    <ul class="post-list">
+      {
+        posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.id}/`}>
+              <h4 class="title">{post.data.title}</h4>
+              {post.data.description && <p class="excerpt">{post.data.description}</p>}
+              <div class="meta">
+                <span class="date">
+                  <FormattedDate date={post.data.pubDate} />
+                </span>
+                {post.data.tags && post.data.tags[0] && <span class="tag">{post.data.tags[0]}</span>}
+              </div>
+            </a>
+          </li>
+        ))
       }
-    </style>
-  </head>
-  <body>
-    <Header />
-    <main>
-      <section>
-        <ul class="post-list">
-          {
-            posts.map((post) => (
-              <li>
-                <a href={`/blog/${post.id}/`}>
-                  <h4 class="title">{post.data.title}</h4>
-                  {post.data.description && (
-                    <p class="excerpt">{post.data.description}</p>
-                  )}
-                  <div class="meta">
-                    <span class="date">
-                      <FormattedDate date={post.data.pubDate} />
-                    </span>
-                    {post.data.tags && post.data.tags[0] && (
-                      <span class="tag">{post.data.tags[0]}</span>
-                    )}
-                  </div>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-    </main>
-    <Footer />
-  </body>
-</html>
+    </ul>
+  </section>
+</BaseLayout>

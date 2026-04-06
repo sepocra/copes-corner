@@ -3,9 +3,11 @@ import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
-<header>
-  <nav>
-    <h2><a href="/">{SITE_TITLE}</a></h2>
+<header class="site-header">
+  <nav class="site-nav" aria-label="Main">
+    <h2 class="site-title">
+      <a class="wordmark" href="/">{SITE_TITLE}</a>
+    </h2>
     <div class="internal-links">
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/blog">Blog</HeaderLink>
@@ -14,42 +16,85 @@ import { SITE_TITLE } from '../consts';
   </nav>
 </header>
 <style>
-  header {
+  .site-header {
     margin: 0;
-    padding: 0 1em;
-    background: #FAFAF8;
-    border-bottom: 1px solid rgb(var(--gray-light));
+    padding: 0;
+    background: #1e1e1e;
+    border-bottom: 2px solid #6b7645;
   }
-  h2 {
-    margin: 0;
-    font-size: 1em;
-    font-family: Georgia, serif;
-  }
-  h2 a,
-  h2 a.active {
-    text-decoration: none;
-    color: rgb(var(--black));
-  }
-  nav {
+  .site-nav {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 0.5em 0;
+    gap: 0.75rem 1.5rem;
+    width: 720px;
+    max-width: calc(100% - 2em);
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0.65rem 1em;
   }
-  nav a {
-    padding: 1em 0.5em;
-    color: #999;
-    border-bottom: 2px solid transparent;
+  .site-title {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.2;
+    font-family:
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      Segoe UI,
+      sans-serif;
+  }
+  .wordmark,
+  .wordmark:visited {
+    color: #e8e0d0;
+    font-weight: 600;
     text-decoration: none;
-    font-family: Georgia, serif;
+    letter-spacing: 0.03em;
+  }
+  .wordmark:hover {
+    color: #f5f0e6;
+  }
+  .internal-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.15rem 0.25rem;
+  }
+  .internal-links :global(a) {
+    display: inline-block;
+    padding: 0.4em 0.65em;
+    color: #7a9e68;
+    text-decoration: none;
+    font-family:
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      Segoe UI,
+      sans-serif;
     font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.35em;
     transition: color 0.2s ease;
   }
-  nav a.active {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
+  .internal-links :global(a:hover) {
+    color: #96b885;
   }
-  nav a:hover {
-    color: var(--accent);
+  .internal-links :global(a.active) {
+    color: #96b885;
+    text-decoration: underline;
+    text-decoration-color: #96b885;
+  }
+  @media (max-width: 640px) {
+    .site-nav {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .internal-links {
+      justify-content: center;
+    }
   }
 </style>
