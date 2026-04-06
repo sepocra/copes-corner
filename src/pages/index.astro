@@ -3,15 +3,52 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
-<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION} lang="ja">
-  <h1>Copes Corner<br /></h1>
-  <h2>What I notice</h2>
-  <p>
-    I spend a lot of time noticing how things really work — in workplaces, on basketball courts, at home
-    with kids, and in the routines that shape our days.<br />
-    <br />
-    This is where I put those observations.<br />
-    Part reflection, part sense-making.<br />
-    Somewhere to pause, notice, and make sense of what’s actually going on <br />
-  </p>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION} lang="en">
+  <div class="home-content">
+    <h1>Copes Corner</h1>
+    <h2>What I notice</h2>
+    <p>
+      I spend a lot of time noticing how things really work — in workplaces, on basketball courts, at home
+      with kids, and in the routines that shape our days.
+    </p>
+    <p>
+      This is where I put those observations.<br />
+      Part reflection, part sense-making.<br />
+      Somewhere to pause, notice, and make sense of what's actually going on.
+    </p>
+  </div>
 </BaseLayout>
+
+<style>
+  .home-content {
+    width: 720px;
+    max-width: calc(100% - 2em);
+    margin: 0 auto;
+    padding: 3rem 1em 4rem;
+    box-sizing: border-box;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 0.35em;
+  }
+
+  h2 {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 600;
+    margin: 0 0 1.5em;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.75;
+    margin: 0 0 1.25em;
+    max-width: 60ch;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+</style>

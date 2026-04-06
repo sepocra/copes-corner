@@ -19,6 +19,13 @@ const { title, description, image, lang = 'en', mainClass } = Astro.props;
 <html lang={lang}>
   <head>
     <BaseHead title={title} description={description} image={image} />
+    <!-- Source Serif 4 + Lora for header/footer typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap"
+      rel="stylesheet"
+    />
     <slot name="head" />
   </head>
   <body class="site-root">
@@ -29,3 +36,66 @@ const { title, description, image, lang = 'en', mainClass } = Astro.props;
     <Footer />
   </body>
 </html>
+
+<style is:global>
+  /* ── Reset ── */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  /* ── Light mode (default) ── */
+  .content-area {
+    background: #ffffff;
+    color: #2d2d2d;
+    min-height: 60vh;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  /* ── Dark mode: follows OS preference automatically ── */
+  @media (prefers-color-scheme: dark) {
+    .content-area {
+      background: #1e1e1e;
+      color: #d4cfc7;
+    }
+
+    /* Post titles */
+    .content-area h1,
+    .content-area h2,
+    .content-area h3 {
+      color: #7a9e68;
+    }
+
+    /* Body text */
+    .content-area p,
+    .content-area li {
+      color: #b0a898;
+    }
+
+    /* Dividers */
+    .content-area hr {
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Links within content */
+    .content-area a {
+      color: #7a9e68;
+    }
+
+    .content-area a:hover {
+      color: #96b885;
+    }
+
+    /* Post meta (dates, tags) */
+    .content-area .post-meta,
+    .content-area time,
+    .content-area .date {
+      color: #666;
+    }
+
+    /* Excerpt / description text */
+    .content-area .description,
+    .content-area .excerpt {
+      color: #777;
+    }
+  }
+</style>
