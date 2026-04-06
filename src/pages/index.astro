@@ -20,12 +20,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 </BaseLayout>
 
 <style>
+  /* global.css `main` handles width and centring.
+     Only typography and spacing needed here. */
   .home-content {
-    width: 720px;
-    max-width: calc(100% - 2em);
-    margin: 0 auto;
-    padding: 3rem 1em 4rem;
-    box-sizing: border-box;
+    padding: 1rem 0 3rem;
   }
 
   h1 {
@@ -36,7 +34,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
   }
 
   h2 {
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-size: clamp(1.25rem, 3vw, 1.6rem);
     font-weight: 600;
     margin: 0 0 1.5em;
   }
