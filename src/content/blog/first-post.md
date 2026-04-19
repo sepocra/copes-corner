@@ -1,6 +1,6 @@
 ---
 title: "Ideas, observations and reflections"
-description: "Your opening line here."
+description: "The way I see the world"
 pubDate: 2026-01-25
 ---
 
