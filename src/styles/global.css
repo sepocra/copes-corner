@@ -265,3 +265,21 @@
    clip-path: inset(50%);
    white-space: nowrap;
  }
+
+.inline-image {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.inline-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.inline-image figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+}
