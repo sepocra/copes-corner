@@ -16,69 +16,105 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
       margin: 0;
     }
   </style>
-  <style slot="head">
-    .hero-image {
-      width: 100%;
-    }
-    .hero-image img {
-      display: block;
-      margin: 0 auto;
-      border-radius: 12px;
-      box-shadow: var(--box-shadow);
-    }
-    .prose {
-      width: 720px;
-      max-width: calc(100% - 2em);
-      margin: auto;
-      padding: 1em;
-      color: var(--content-text);
-    }
-    .title {
-      margin-bottom: 1em;
-      padding: 1em 0;
-      text-align: center;
-      line-height: 1;
-    }
-    .title h1 {
-      margin: 0 0 0.5em 0;
-    }
-    .date {
-      margin-bottom: 0.5em;
-      color: var(--content-muted);
-    }
-    .last-updated-on {
-      font-style: italic;
-    }
-@media (max-width: 720px) {
-  .title {
-    line-height: 1.2;
-    padding: 0.5em 0;
-  }
-  .title h1 {
-    margin: 0 0 0.75em 0;
-  }
-  .prose {
-    padding: 0.5em;
-  }
-}
-  </style>
-  <article>
-    <div class="prose">
-      <div class="title">
-        <div class="date">
-          <FormattedDate date={pubDate} />
-          {
-            updatedDate && (
-              <div class="last-updated-on">
-                Last updated on <FormattedDate date={updatedDate} />
-              </div>
-            )
-          }
-        </div>
-        <h1>{title}</h1>
-        <hr />
+
+  <article class="prose">
+
+    <a class="back-link" href="/blog/">
+      <span class="back-arrow" aria-hidden="true">←</span>
+      <span class="back-label">All observations</span>
+    </a>
+
+    <div class="title">
+      <div class="date">
+        <FormattedDate date={pubDate} />
+        {updatedDate && (
+          <div class="last-updated-on">
+            Last updated on <FormattedDate date={updatedDate} />
+          </div>
+        )}
       </div>
-      <slot />
+      <h1>{title}</h1>
+      <hr />
     </div>
+
+    <slot />
+
   </article>
 </BaseLayout>
+
+<style>
+  .prose {
+    width: 720px;
+    max-width: calc(100% - 2em);
+    margin: auto;
+    padding: 2.5rem 1em 4rem;
+  }
+
+  /* ── Back link — matches "All observations" label style ── */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    margin-bottom: 2.5rem;
+  }
+
+  .back-arrow {
+    font-size: 0.72rem;
+    color: #6b7645;
+    transition: transform 0.2s ease;
+  }
+
+  .back-label {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6b7645;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover .back-label {
+    color: #96b885;
+  }
+
+  .back-link:hover .back-arrow {
+    transform: translateX(-3px);
+  }
+
+  /* ── Post title block ── */
+  .title {
+    margin-bottom: 1em;
+    padding: 1em 0;
+    text-align: center;
+    line-height: 1;
+  }
+
+  .title h1 {
+    margin: 0 0 0.5em 0;
+  }
+
+  .date {
+    margin-bottom: 0.5em;
+  }
+
+  .last-updated-on {
+    font-style: italic;
+  }
+
+  @media (max-width: 720px) {
+    .title {
+      line-height: 1.2;
+      padding: 0.5em 0;
+    }
+
+    .title h1 {
+      margin: 0 0 0.75em 0;
+    }
+
+    .prose {
+      padding: 1.5rem 0.5em 3rem;
+    }
+  }
+</style>

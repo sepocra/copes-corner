@@ -1,50 +1,172 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const latest = posts[0];
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION} lang="en">
   <div class="home-content">
-    <h1>Copes Corner</h1>
-    <h2>What I notice</h2>
-    <p>
-      I spend a lot of time noticing how things really work — in workplaces, on basketball courts, at home
-      with kids, and in the routines that shape our days.
-    </p>
-    <p>
-      This is where I put those observations.<br />
-      Part reflection, part sense-making.<br />
-      Somewhere to pause, notice, and make sense of what's actually going on.
-    </p>
+    <div class="intro">
+      <h1>What I notice</h1>
+      <p>
+        I spend a lot of time noticing how things really work — in workplaces, on basketball courts, at home
+        with kids, and in the routines that shape our days.
+      </p>
+      <p>
+        This is where I put those observations.
+      </p>
+      <p>
+        Part reflection, part sense-making. Somewhere to pause, notice, and make sense of what's actually going on.
+      </p>
+    </div>
+
+    {latest && (
+      <div class="latest">
+        <span class="block-label">Latest</span>
+        <a class="latest-link" href={`/blog/${latest.slug}/`}>
+          <span class="latest-title">{latest.data.title}</span>
+          <span class="latest-arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="latest-date">
+          {latest.data.pubDate.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}
+        </p>
+        <a class="all-link" href="/blog/">
+          <span class="all-arrow" aria-hidden="true">→</span>
+          <span class="all-label">All observations</span>
+        </a>
+      </div>
+    )}
   </div>
 </BaseLayout>
 
 <style>
-  /* global.css `main` handles width and centring */
   .home-content {
-    padding: 1rem 0 3rem;
+    padding: 3.5rem 0 4rem;
+    max-width: 560px;
   }
 
+  /* ── Intro ── */
   h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 700;
-    line-height: 1.1;
-    margin: 0 0 0.35em;
-  }
-
-  h2 {
-    font-size: clamp(1.25rem, 3vw, 1.6rem);
+    font-family: 'Lora', Georgia, serif;
     font-weight: 600;
-    margin: 0 0 1.5em;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6b7645;
+    margin: 0 0 1.75rem;
   }
 
   p {
-    font-size: 1rem;
+    font-size: 1.05rem;
     line-height: 1.75;
-    margin: 0 0 1.25em;
+    margin: 0 0 1rem;
   }
 
-  p:last-child {
+  p:last-of-type {
     margin-bottom: 0;
+  }
+
+  /* ── Latest block ── */
+  .latest {
+    margin-top: 3rem;
+  }
+
+  .block-label {
+    display: block;
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6b7645;
+    margin-bottom: 0.75rem;
+  }
+
+  .latest-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    text-decoration: none;
+  }
+
+  .latest-title {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 400;
+    font-size: 1.15rem;
+    line-height: 1.4;
+    color: inherit;
+    transition: color 0.2s ease;
+  }
+
+  .latest-link:hover .latest-title {
+    color: #6b7645;
+  }
+
+  .latest-arrow {
+    font-size: 0.9rem;
+    color: #6b7645;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  .latest-link:hover .latest-arrow {
+    transform: translateX(3px);
+  }
+
+  .latest-date {
+    margin: 0.4rem 0 1.1rem;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    font-size: 0.8rem;
+    color: #888;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── All observations link — matches block-label style ── */
+  .all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+  }
+
+  .all-arrow {
+    font-size: 0.72rem;
+    color: #6b7645;
+    transition: transform 0.2s ease;
+  }
+
+  .all-label {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6b7645;
+    transition: color 0.2s ease;
+  }
+
+  .all-link:hover .all-label {
+    color: #96b885;
+  }
+
+  .all-link:hover .all-arrow {
+    transform: translateX(3px);
+  }
+
+  /* ── Dark mode ── */
+  @media (prefers-color-scheme: dark) {
+    .latest-title {
+      color: #d4ccc0;
+    }
+
+    .latest-date {
+      color: #6a6860;
+    }
   }
 </style>
