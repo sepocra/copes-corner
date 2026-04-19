@@ -7,6 +7,10 @@ import { SITE_TITLE } from '../consts';
     <h2 class="site-title">
       <a class="wordmark" href="/">{SITE_TITLE}</a>
     </h2>
+    <a class="obs-link" href="/blog/">
+      <span class="obs-label">Observations</span>
+      <span class="obs-arrow" aria-hidden="true">â†’</span>
+    </a>
   </div>
 </header>
 
@@ -21,6 +25,7 @@ import { SITE_TITLE } from '../consts';
   .site-nav {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     width: 860px;
     max-width: calc(100% - 2em);
     margin: 0 auto;
@@ -45,5 +50,37 @@ import { SITE_TITLE } from '../consts';
 
   .wordmark:hover {
     color: #f5f0e6;
+  }
+
+  /* â”€â”€ Observations link â€” label style â”€â”€ */
+  .obs-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+  }
+
+  .obs-label {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6b7645;
+    transition: color 0.2s ease;
+  }
+
+  .obs-arrow {
+    font-size: 0.72rem;
+    color: #6b7645;
+    transition: transform 0.2s ease;
+  }
+
+  .obs-link:hover .obs-label {
+    color: #96b885;
+  }
+
+  .obs-link:hover .obs-arrow {
+    transform: translateX(3px);
   }
 </style>
