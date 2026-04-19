@@ -1,7 +1,7 @@
 ---
 title: "Every change is a chance"
-description: "just needs the right perspective"
-pubDate: "Dec 13 2022"
+description: "just needs the right perspective and a bit of time"
+pubDate: "Dec 13 2025"
 ---
 
 Unexpected change (and some expected change) can be tough to navigate.
