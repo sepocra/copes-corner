@@ -14,7 +14,7 @@ const latest = posts[0];
     <div class="intro">
       <h1>What I notice</h1>
       <p>
-        I spend a lot of time noticing how things really work — in workplaces, on basketball courts, at home
+        I spend a lot of time noticing how things really work â€” in workplaces, on basketball courts, at home
         with kids, and in the routines that shape our days.
       </p>
       <p>
@@ -30,13 +30,13 @@ const latest = posts[0];
         <span class="block-label">Latest</span>
         <a class="latest-link" href={`/blog/${latest.slug}/`}>
           <span class="latest-title">{latest.data.title}</span>
-          <span class="latest-arrow" aria-hidden="true">→</span>
+          <span class="latest-arrow" aria-hidden="true">â†’</span>
         </a>
         <p class="latest-date">
           {latest.data.pubDate.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}
         </p>
         <a class="all-link" href="/blog/">
-          <span class="all-arrow" aria-hidden="true">→</span>
+          <span class="all-arrow" aria-hidden="true">â†’</span>
           <span class="all-label">All observations</span>
         </a>
       </div>
@@ -46,11 +46,11 @@ const latest = posts[0];
 
 <style>
   .home-content {
-    padding: 3.5rem 0 4rem;
-    max-width: 560px;
+    padding: 3rem 0 4rem;
+    max-width: 540px;
   }
 
-  /* ── Intro ── */
+  /* â”€â”€ Intro â”€â”€ */
   h1 {
     font-family: 'Lora', Georgia, serif;
     font-weight: 600;
@@ -58,22 +58,22 @@ const latest = posts[0];
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: #6b7645;
-    margin: 0 0 1.75rem;
+    margin: 0 0 1.4rem;
   }
 
   p {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    margin: 0 0 1rem;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin: 0 0 0.85rem;
   }
 
   p:last-of-type {
     margin-bottom: 0;
   }
 
-  /* ── Latest block ── */
+  /* â”€â”€ Latest block â”€â”€ */
   .latest {
-    margin-top: 3rem;
+    margin-top: 2.5rem;
   }
 
   .block-label {
@@ -127,7 +127,7 @@ const latest = posts[0];
     letter-spacing: 0.02em;
   }
 
-  /* ── All observations link — matches block-label style ── */
+  /* â”€â”€ All observations link â€” matches block-label style â”€â”€ */
   .all-link {
     display: inline-flex;
     align-items: center;
@@ -159,7 +159,7 @@ const latest = posts[0];
     transform: translateX(3px);
   }
 
-  /* ── Dark mode ── */
+  /* â”€â”€ Dark mode â”€â”€ */
   @media (prefers-color-scheme: dark) {
     .latest-title {
       color: #d4ccc0;
