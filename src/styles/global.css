@@ -250,6 +250,15 @@
    main {
      padding: 1em;
    }
+h1 {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+  h2 {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+  }
+  h3 {
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
+  }
  }
  
  .sr-only {
