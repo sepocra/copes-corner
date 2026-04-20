@@ -27,6 +27,15 @@ const { title, description, image, lang = 'en', mainClass } = Astro.props;
       rel="stylesheet"
     />
     <slot name="head" />
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HTQ5WHMLZF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HTQ5WHMLZF');
+</script>
+
   </head>
   <body class="site-root">
     <Header />
