@@ -28,7 +28,7 @@ const latest = posts[0];
     {latest && (
       <div class="latest">
         <span class="block-label">Latest</span>
-        <a class="latest-link" href={`/blog/${latest.slug}/`}>
+       <a class="latest-link" href={`/blog/${latest.id}/`}>
           <span class="latest-title">{latest.data.title}</span>
           <span class="latest-arrow" aria-hidden="true">&rarr;</span>
         </a>
