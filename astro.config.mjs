@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
-import netlify from "@astrojs/netlify";
 
 const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
 
@@ -11,7 +10,4 @@ export default defineConfig({
   base: isGitHubPages ? '/copes-corner' : undefined,
   output: "static",
   integrations: [mdx()],
-  adapter: isGitHubPages ? undefined : netlify({
-    imageCDN: false,
-  }),
 });
