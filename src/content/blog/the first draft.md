@@ -9,7 +9,7 @@ Whenever creating something new, the blank document, the blank email or message,
 
 Then the questions start.. 
 
-What if it's not as good as I want it to be? What if other people or even myself don't like the end result? What if I go do do other things and do this later? What if I don't finish?
+What if it's not as good as I want it to be? What if other people or even myself don't like the end result? What if I go do other things and start this later? What if I don't finish?
 
 All this 'What if' energy is energy that could have produced that first iteration. The first iteration doesn't need to be perfect it just needs to be started.
 
