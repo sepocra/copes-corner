@@ -1,6 +1,6 @@
 ---
 title: The Present
-description: Where the magic happend and you are at your best
+description: Where the magic happened and you are at your best
 pubDate: 2026-05-03
 ---
 When the mind is in the present it can provide many presents.
