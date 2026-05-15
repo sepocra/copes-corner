@@ -5,7 +5,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, subtitle, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} mainClass="blog-post-main">
@@ -34,6 +34,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         )}
       </div>
       <h1>{title}</h1>
+      {subtitle && (
+        <p class="subtitle">{subtitle}</p>
+      )}
       <hr />
     </div>
 
@@ -97,6 +100,16 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     line-height: 1.25;
   }
 
+  .subtitle {
+    margin: 0.8em 0 1em 0;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #666;
+    font-style: italic;
+  }
+
   .date {
     margin-bottom: 0.6em;
     font-family: 'Source Serif 4', Georgia, serif;
@@ -118,6 +131,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     .title h1 {
       font-size: clamp(1.2rem, 6vw, 1.6rem);
       margin: 0 0 0.5em 0;
+    }
+
+    .subtitle {
+      font-size: clamp(0.95rem, 4vw, 1.05rem);
+      margin: 0.6em 0 0.9em 0;
     }
 
     .prose {
