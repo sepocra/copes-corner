@@ -5,7 +5,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, subtitle, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} mainClass="blog-post-main">
@@ -34,8 +34,8 @@ const { title, subtitle, description, pubDate, updatedDate, heroImage } = Astro.
         )}
       </div>
       <h1>{title}</h1>
-      {subtitle && (
-        <p class="subtitle">{subtitle}</p>
+      {description && (
+        <p class="subtitle">{description}</p>
       )}
       <hr />
     </div>
