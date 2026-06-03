@@ -3,6 +3,15 @@ title: Power of perspective
 description: No two people stand in the same spot
 pubDate: 2026-06-04
 ---
+<figure class="inline-image">
+  <img
+    src="/images/true true truth.png"
+    alt="True True Truth"
+  />
+  <figcaption>
+    Visual from <a href="https://www.reddit.com/r/woahdude/comments/70gjkg/true_vs_truth/" target="_blank" rel="noopener"> r/woahdude </a>
+  </figcaption>
+</figure>
 
 Every situation contains multiple perspectives. That same moment, seen completely differently by everyone in it.
 
