@@ -11,6 +11,7 @@ pubDate: 2026-06-04
   <figcaption>
     Visual from <a href="https://www.reddit.com/r/woahdude/comments/70gjkg/true_vs_truth/" target="_blank" rel="noopener"> r/woahdude </a>
   </figcaption>
+  <p></p>
 </figure>
 
 Every situation contains multiple perspectives. That same moment, seen completely differently by everyone in it.
