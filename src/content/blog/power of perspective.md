@@ -5,7 +5,7 @@ pubDate: 2026-06-04
 ---
 <figure class="inline-image">
   <img
-    src="/images/true true truth.png"
+    src="/images/true true truth.jpg"
     alt="True True Truth"
   />
   <figcaption>
