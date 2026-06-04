@@ -108,8 +108,8 @@ main.content-area code {
     --content-border: #3a3834;
     --content-code-bg: #2a2826;
     --post-list-title: var(--color-cream);
-    --post-list-excerpt: rgba(232, 224, 208, 0.6);
-    --post-list-meta: #8a8680;
+    --post-list-excerpt: #c8c0b0;
+    --post-list-meta: #a09890;
   }
 
   main.content-area a {
