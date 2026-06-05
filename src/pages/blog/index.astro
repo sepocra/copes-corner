@@ -65,11 +65,17 @@ const posts = (await getCollection('blog')).sort(
       letter-spacing: 0.04em;
       text-transform: lowercase;
     }
-    @media (prefers-color-scheme: dark) {
-      .tag {
-        background-color: rgba(122, 158, 104, 0.15);
-      }
-    }
+   @media (prefers-color-scheme: dark) {
+  .tag {
+    background-color: rgba(122, 158, 104, 0.15);
+  }
+  .excerpt {
+    color: #c8c0b0;
+  }
+  .date {
+    color: #a09890;
+  }
+}
   </style>
   <section>
     <ul class="post-list">
