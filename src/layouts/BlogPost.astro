@@ -8,14 +8,7 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} mainClass="blog-post-main">
-  <style is:global slot="head">
-    main.blog-post-main {
-      width: calc(100% - 2em);
-      max-width: 100%;
-      margin: 0;
-    }
-  </style>
+<BaseLayout title={title} description={description}>
 
   <article class="prose">
 
@@ -48,9 +41,10 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 <style>
   .prose {
     width: 720px;
-    max-width: calc(100% - 2em);
+    max-width: 100%;
     margin: auto;
-    padding: 2.5rem 1em 4rem;
+    /* No top padding — <main> from global.css already provides 3em */
+    padding: 0 0 2rem;
   }
 
   /* ── Back link — matches "All observations" label style ── */
@@ -136,10 +130,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     .subtitle {
       font-size: clamp(0.95rem, 4vw, 1.05rem);
       margin: 0.6em 0 0.9em 0;
-    }
-
-    .prose {
-      padding: 1.5rem 0.5em 3rem;
     }
   }
 
