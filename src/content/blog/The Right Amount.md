@@ -16,6 +16,6 @@ Five **why's** get towards a root cause. Any more we start to go in circles.
 
 Three **what ifs** give insight. Any more we drift away from the current issue.
 
-One **how to not repeat** can discover that first step forward. Any more we take on too much new information.
+One **how to** do it differently can discover that first step forward. Any more we take on too much new information.
 
 The knowledge has now been extracted and time to move forward
