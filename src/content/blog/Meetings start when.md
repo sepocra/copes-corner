@@ -1,6 +1,6 @@
 ---
-title: The meeting starts when
-description: Each warm-up is different
+title: The meeting start time
+description: every warm-up is different
 pubDate: 2026-07-03
 ---
 The meeting says 10am start.
