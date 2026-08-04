@@ -9,7 +9,7 @@ A simple plan executed. 10 blog posts created. Some were part of the initial ide
 
 Along with the blog, a fortnightly publishing schedule on LinkedIn. More than six thousand impressions and over 150 engagements. Then there are the conversations with people who read, didn't interact, and wondered why I was sharing when we caught up in person.
 
-Looking back, I focus only on [the right amount](/blog/the-right-amount/).
+Looking back, I focus only on [The Right Amount](/blog/the-right-amount/).
 
 Why does a milestone number make it worth celebrating? Why is it any different to 99 days? Why is it still so hard to hit publish, even after this time? Why am I posting this? Why did I feel compelled to create this blog from scratch and start sharing my ideas?
 
