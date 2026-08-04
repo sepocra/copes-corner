@@ -3,7 +3,7 @@ title: 100 days later
 description: A moment for celebration and reflection 
 pubDate: 2026-08-01
 ---
-Today is 100 days since I started sharing my observations. The first one started with "Everyone has a blank page moment." The post where I said to myself, let's commit to this. Putting what I notice into words and sharing it with others.
+Today is 100 days since I started sharing my observations. The first one started with talking about the blank page syndrome. The post where I said to myself, let's commit to this. Putting what I notice into words and sharing it with others.
 
 A simple plan executed. 10 blog posts created. Some were part of the initial idea list. For some, the observation appeared along the way.
 
