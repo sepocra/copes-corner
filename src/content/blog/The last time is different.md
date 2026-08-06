@@ -6,7 +6,7 @@ pubDate: 2026-07-13
 
 Most lasts in our lives, we have no clue at the time.
 
-The last time reading a specific book before bed. The book just stops being asked for, and by the time you notice, you cannot remember which night was the last one.
+The last time reading a specific book before bed. The book just stops being asked for. By the time you notice, you cannot remember which night was the last one.
 
 It's only looking back that you realise it was the last
 
