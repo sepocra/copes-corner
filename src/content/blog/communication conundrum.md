@@ -1,5 +1,5 @@
 ---
-title: Communication conundrum scale
+title: Communication conundrum
 description: the choice impacts the outcome
 pubDate: 2026-08-23
 ---
