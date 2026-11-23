@@ -44,6 +44,8 @@ const hasPostNav = prevPost || nextPost;
 
     <slot />
 
+	import SubscribeNote from '../components/SubscribeNote.astro';
+
     {hasPostNav && (
       <nav
         class:list={['post-nav', { 'post-nav--single': !prevPost || !nextPost }]}
