@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
+import SubscribeNote from '../components/SubscribeNote.astro';
 
 const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
@@ -23,6 +24,8 @@ const latest = posts[0];
         Part reflection, part sense-making. Somewhere to pause and make sense of what's actually going on.
       </p>
     </div>
+
+    <SubscribeNote />
 
     {latest && (
       <div class="latest">
