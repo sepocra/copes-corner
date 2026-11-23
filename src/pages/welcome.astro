@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Welcome"
+  description="Your subscription to Copes Corner is confirmed."
+  lang="en"
+>
+  <meta slot="head" name="robots" content="noindex" />
+
+  <div class="welcome-content">
+    <h1>Welcome to Copes Corner</h1>
+
+    <p>Your subscription is confirmed. Thanks for subscribing.</p>
+
+    <p>
+      I spend a lot of time noticing how things really work. At work, on basketball courts, at home with kids, and in the routines that shape our days. This is where I put those observations.
+    </p>
+
+    <p>
+      A new post will arrive every second Sunday. It is short. It is meant to be read in a few minutes and then left alone. That's the aim.
+    </p>
+
+    <p>
+      If it lands in Promotions, drag it to Primary so you don't miss the next one.
+    </p>
+
+    <p class="starter-intro">Here are three to start with:</p>
+
+    <ul class="starter-list">
+      <li><a href="/blog/the-present/">The Present</a></li>
+      <li><a href="/blog/the-first-draft/">The First Draft</a></li>
+      <li><a href="/blog/one-breath/">One Breath</a></li>
+    </ul>
+
+    <p>You can reply to any email from me. I read everything.</p>
+
+    <p class="signoff">Craig</p>
+  </div>
+</BaseLayout>
+
+<style>
+  .welcome-content {
+    padding: 3rem 0 4rem;
+    max-width: 540px;
+  }
+
+  h1 {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.3;
+    color: #6b7645;
+    margin: 0 0 1.4rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin: 0 0 0.85rem;
+  }
+
+  .starter-intro {
+    margin-top: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .starter-list {
+    list-style: none;
+    margin: 0 0 1.6rem;
+    padding: 0;
+  }
+
+  .starter-list li {
+    margin: 0;
+    padding: 0.2rem 0;
+  }
+
+  .starter-list a {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #6b7645;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .starter-list a:hover,
+  .starter-list a:focus-visible {
+    color: #515a33;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+
+  .signoff {
+    margin-top: 1.6rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .starter-list a {
+      color: #7a9e68;
+    }
+
+    .starter-list a:hover,
+    .starter-list a:focus-visible {
+      color: #96b885;
+    }
+  }
+</style>
