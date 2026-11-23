@@ -1,4 +1,6 @@
 ---
+import { SUBSCRIBE_URL } from '../consts';
+
 const linkedInUrl = "https://www.linkedin.com/in/craigcopes";
 const email = "sepocra@gmail.com";
 ---
@@ -7,6 +9,8 @@ const email = "sepocra@gmail.com";
   <div class="footer-inner">
     <p class="tagline">Craig Copes. Paying attention to the patterns in everyday life. Across work, sport, raising kids, and the routines that quietly shape us.</p>
     <p class="contact-links">
+      <a href={SUBSCRIBE_URL} target="_blank" rel="noopener noreferrer">Subscribe</a>
+      <span class="sep" aria-hidden="true">·</span>
       <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <span class="sep" aria-hidden="true">·</span>
       <a href={`mailto:${email}`}>Email</a>
